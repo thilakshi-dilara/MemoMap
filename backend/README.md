@@ -25,6 +25,19 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## MemoMap Phase 1 foundation
+
+Phase 1 provides the MySQL/Prisma persistence baseline and API platform configuration. The API is served under `/api/v1`, its OpenAPI UI is available at `/api/docs`, and `GET /api/v1/health` is available without a database query.
+
+1. Copy `.env.example` to `.env` and set a real MySQL 8 `DATABASE_URL` for the `memomap_db` database.
+2. Generate the Prisma client: `npm run prisma:generate`.
+3. Apply the committed baseline migration: `npm run prisma:deploy`.
+4. Start the API: `npm run start:dev`.
+
+The initial data model includes users, refresh tokens, memories, Cloudinary media metadata, favourites, notification preferences/tokens, and chat conversations/messages. Media binaries are intentionally not stored in MySQL.
+
+The architecture is deliberately modular: `prisma/` provides the global database client, `health/` provides the current operational endpoint, and later phases will add `auth`, `users`, `memories`, `media`, `chatbot`, `notifications`, and `common` modules.
+
 ## Project setup
 
 ```bash

@@ -1,0 +1,6 @@
+# Local configuration and generated output
+**/.env
+**/.env.local
+**/node_modules/
+**/dist/
+backend/src/generated/
